@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB4A26C819AA244C00945AEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4A26C719AA244C00945AEB /* main.m */; };
+		EB4A26CB19AA244C00945AEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4A26CA19AA244C00945AEB /* ViewController.m */; };
+		EB4A26CE19AA244C00945AEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4A26CD19AA244C00945AEB /* AppDelegate.m */; };
+		EB4A26D119AA244C00945AEB /* Chinese_flashcards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB4A26CF19AA244C00945AEB /* Chinese_flashcards.xcdatamodeld */; };
+		EB4A26D319AA244C00945AEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4A26D219AA244C00945AEB /* Images.xcassets */; };
+		EB4A26D619AA244C00945AEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4A26D419AA244C00945AEB /* Main.storyboard */; };
+		EB4A26E219AA244C00945AEB /* Chinese_flashcardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4A26E119AA244C00945AEB /* Chinese_flashcardsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB4A26DC19AA244C00945AEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB4A26BA19AA244B00945AEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB4A26C119AA244B00945AEB;
+			remoteInfo = "Chinese flashcards";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB4A26C219AA244C00945AEB /* Chinese flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chinese flashcards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4A26C619AA244C00945AEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB4A26C719AA244C00945AEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB4A26C919AA244C00945AEB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EB4A26CA19AA244C00945AEB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EB4A26CC19AA244C00945AEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EB4A26CD19AA244C00945AEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EB4A26D019AA244C00945AEB /* Chinese_flashcards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chinese_flashcards.xcdatamodel; sourceTree = "<group>"; };
+		EB4A26D219AA244C00945AEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EB4A26D519AA244C00945AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB4A26DB19AA244C00945AEB /* Chinese flashcardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chinese flashcardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4A26E019AA244C00945AEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB4A26E119AA244C00945AEB /* Chinese_flashcardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chinese_flashcardsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB4A26BF19AA244B00945AEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB4A26D819AA244C00945AEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB4A26B919AA244B00945AEB = {
+			isa = PBXGroup;
+			children = (
+				EB4A26C419AA244C00945AEB /* Chinese flashcards */,
+				EB4A26DE19AA244C00945AEB /* Chinese flashcardsTests */,
+				EB4A26C319AA244C00945AEB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB4A26C319AA244C00945AEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB4A26C219AA244C00945AEB /* Chinese flashcards.app */,
+				EB4A26DB19AA244C00945AEB /* Chinese flashcardsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB4A26C419AA244C00945AEB /* Chinese flashcards */ = {
+			isa = PBXGroup;
+			children = (
+				EB4A26C919AA244C00945AEB /* ViewController.h */,
+				EB4A26CA19AA244C00945AEB /* ViewController.m */,
+				EB4A26CC19AA244C00945AEB /* AppDelegate.h */,
+				EB4A26CD19AA244C00945AEB /* AppDelegate.m */,
+				EB4A26D219AA244C00945AEB /* Images.xcassets */,
+				EB4A26D419AA244C00945AEB /* Main.storyboard */,
+				EB4A26CF19AA244C00945AEB /* Chinese_flashcards.xcdatamodeld */,
+				EB4A26C519AA244C00945AEB /* Supporting Files */,
+			);
+			path = "Chinese flashcards";
+			sourceTree = "<group>";
+		};
+		EB4A26C519AA244C00945AEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB4A26C619AA244C00945AEB /* Info.plist */,
+				EB4A26C719AA244C00945AEB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB4A26DE19AA244C00945AEB /* Chinese flashcardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB4A26E119AA244C00945AEB /* Chinese_flashcardsTests.m */,
+				EB4A26DF19AA244C00945AEB /* Supporting Files */,
+			);
+			path = "Chinese flashcardsTests";
+			sourceTree = "<group>";
+		};
+		EB4A26DF19AA244C00945AEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB4A26E019AA244C00945AEB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB4A26C119AA244B00945AEB /* Chinese flashcards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB4A26E519AA244C00945AEB /* Build configuration list for PBXNativeTarget "Chinese flashcards" */;
+			buildPhases = (
+				EB4A26BE19AA244B00945AEB /* Sources */,
+				EB4A26BF19AA244B00945AEB /* Frameworks */,
+				EB4A26C019AA244B00945AEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Chinese flashcards";
+			productName = "Chinese flashcards";
+			productReference = EB4A26C219AA244C00945AEB /* Chinese flashcards.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB4A26DA19AA244C00945AEB /* Chinese flashcardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB4A26E819AA244C00945AEB /* Build configuration list for PBXNativeTarget "Chinese flashcardsTests" */;
+			buildPhases = (
+				EB4A26D719AA244C00945AEB /* Sources */,
+				EB4A26D819AA244C00945AEB /* Frameworks */,
+				EB4A26D919AA244C00945AEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB4A26DD19AA244C00945AEB /* PBXTargetDependency */,
+			);
+			name = "Chinese flashcardsTests";
+			productName = "Chinese flashcardsTests";
+			productReference = EB4A26DB19AA244C00945AEB /* Chinese flashcardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB4A26BA19AA244B00945AEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Samuli Lehtonen";
+				TargetAttributes = {
+					EB4A26C119AA244B00945AEB = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					EB4A26DA19AA244C00945AEB = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = EB4A26C119AA244B00945AEB;
+					};
+				};
+			};
+			buildConfigurationList = EB4A26BD19AA244B00945AEB /* Build configuration list for PBXProject "Chinese flashcards" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB4A26B919AA244B00945AEB;
+			productRefGroup = EB4A26C319AA244C00945AEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB4A26C119AA244B00945AEB /* Chinese flashcards */,
+				EB4A26DA19AA244C00945AEB /* Chinese flashcardsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB4A26C019AA244B00945AEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB4A26D319AA244C00945AEB /* Images.xcassets in Resources */,
+				EB4A26D619AA244C00945AEB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB4A26D919AA244C00945AEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB4A26BE19AA244B00945AEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB4A26D119AA244C00945AEB /* Chinese_flashcards.xcdatamodeld in Sources */,
+				EB4A26CB19AA244C00945AEB /* ViewController.m in Sources */,
+				EB4A26C819AA244C00945AEB /* main.m in Sources */,
+				EB4A26CE19AA244C00945AEB /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB4A26D719AA244C00945AEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB4A26E219AA244C00945AEB /* Chinese_flashcardsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB4A26DD19AA244C00945AEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB4A26C119AA244B00945AEB /* Chinese flashcards */;
+			targetProxy = EB4A26DC19AA244C00945AEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EB4A26D419AA244C00945AEB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB4A26D519AA244C00945AEB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB4A26E319AA244C00945AEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EB4A26E419AA244C00945AEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EB4A26E619AA244C00945AEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Chinese flashcards/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EB4A26E719AA244C00945AEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Chinese flashcards/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EB4A26E919AA244C00945AEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Chinese flashcards.app/Contents/MacOS/Chinese flashcards";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Chinese flashcardsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		EB4A26EA19AA244C00945AEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Chinese flashcards.app/Contents/MacOS/Chinese flashcards";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Chinese flashcardsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB4A26BD19AA244B00945AEB /* Build configuration list for PBXProject "Chinese flashcards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB4A26E319AA244C00945AEB /* Debug */,
+				EB4A26E419AA244C00945AEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB4A26E519AA244C00945AEB /* Build configuration list for PBXNativeTarget "Chinese flashcards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB4A26E619AA244C00945AEB /* Debug */,
+				EB4A26E719AA244C00945AEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EB4A26E819AA244C00945AEB /* Build configuration list for PBXNativeTarget "Chinese flashcardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB4A26E919AA244C00945AEB /* Debug */,
+				EB4A26EA19AA244C00945AEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EB4A26CF19AA244C00945AEB /* Chinese_flashcards.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB4A26D019AA244C00945AEB /* Chinese_flashcards.xcdatamodel */,
+			);
+			currentVersion = EB4A26D019AA244C00945AEB /* Chinese_flashcards.xcdatamodel */;
+			path = Chinese_flashcards.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EB4A26BA19AA244B00945AEB /* Project object */;
+}
