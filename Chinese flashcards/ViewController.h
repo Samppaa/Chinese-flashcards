@@ -7,8 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CellViewController.h"
+#import "CellView.h"
+#import "WordPacksController.h"
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
+
+@property(nonatomic, weak) IBOutlet NSTableView *tableView;
+@property(nonatomic, weak) IBOutlet NSTableView *tableView2;
+@property(nonatomic, assign) NSInteger selectedRow;
 
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Word.h"
 
 @interface Chinese_flashcardsTests : XCTestCase
 
@@ -24,9 +25,13 @@
     [super tearDown];
 }
 
+
 - (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    Word *word = [[Word alloc] initWithWordText:@"Ni hao" translation:@"Hello" pinyin:@"Ni hao" levelKnown:5];
+    XCTAssertEqual([word getWordText], @"Ni hao");
+    
+    Word *word2 = [[Word alloc] initWithString:@"Ni hao:Hello:Ni hao:5"];
+    XCTAssertEqual([word2 stringValue], @"Ni hao:Hello:Ni hao:5");
 }
 
 - (void)testPerformanceExample {

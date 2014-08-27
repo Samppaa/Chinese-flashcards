@@ -14,10 +14,27 @@
 		EB4A26D319AA244C00945AEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4A26D219AA244C00945AEB /* Images.xcassets */; };
 		EB4A26D619AA244C00945AEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4A26D419AA244C00945AEB /* Main.storyboard */; };
 		EB4A26E219AA244C00945AEB /* Chinese_flashcardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4A26E119AA244C00945AEB /* Chinese_flashcardsTests.m */; };
+		EB97509919AD2F59007CEC15 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97509819AD2F59007CEC15 /* WindowController.m */; };
+		EB97509B19AD3075007CEC15 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB97509A19AD3075007CEC15 /* AppKit.framework */; };
+		EB97509E19AD37CE007CEC15 /* TransparentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97509D19AD37CE007CEC15 /* TransparentScrollView.m */; };
+		EB9750A519ADDE76007CEC15 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A019ADDE76007CEC15 /* Word.m */; };
+		EB9750A619ADDE76007CEC15 /* WordPack.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A219ADDE76007CEC15 /* WordPack.m */; };
+		EB9750A719ADDE76007CEC15 /* WordVault.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A419ADDE76007CEC15 /* WordVault.m */; };
+		EB9750AA19ADDF81007CEC15 /* WordPacksController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A919ADDF81007CEC15 /* WordPacksController.m */; };
+		EB9750AD19ADE9A6007CEC15 /* CellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750AC19ADE9A6007CEC15 /* CellViewController.m */; };
+		EB9750B119AE05F9007CEC15 /* CellView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750B019AE05F9007CEC15 /* CellView.m */; };
+		EB9750B419AE0C21007CEC15 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750B319AE0C21007CEC15 /* RoundedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		EB4A26DC19AA244C00945AEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB4A26BA19AA244B00945AEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB4A26C119AA244B00945AEB;
+			remoteInfo = "Chinese flashcards";
+		};
+		EB59850319AA26F9002EA6C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB4A26BA19AA244B00945AEB /* Project object */;
 			proxyType = 1;
@@ -40,6 +57,25 @@
 		EB4A26DB19AA244C00945AEB /* Chinese flashcardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chinese flashcardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4A26E019AA244C00945AEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4A26E119AA244C00945AEB /* Chinese_flashcardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chinese_flashcardsTests.m; sourceTree = "<group>"; };
+		EB97509719AD2F59007CEC15 /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		EB97509819AD2F59007CEC15 /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		EB97509A19AD3075007CEC15 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		EB97509C19AD37CE007CEC15 /* TransparentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentScrollView.h; sourceTree = "<group>"; };
+		EB97509D19AD37CE007CEC15 /* TransparentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentScrollView.m; sourceTree = "<group>"; };
+		EB97509F19ADDE76007CEC15 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		EB9750A019ADDE76007CEC15 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		EB9750A119ADDE76007CEC15 /* WordPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPack.h; sourceTree = "<group>"; };
+		EB9750A219ADDE76007CEC15 /* WordPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPack.m; sourceTree = "<group>"; };
+		EB9750A319ADDE76007CEC15 /* WordVault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordVault.h; sourceTree = "<group>"; };
+		EB9750A419ADDE76007CEC15 /* WordVault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordVault.m; sourceTree = "<group>"; };
+		EB9750A819ADDF81007CEC15 /* WordPacksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPacksController.h; sourceTree = "<group>"; };
+		EB9750A919ADDF81007CEC15 /* WordPacksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPacksController.m; sourceTree = "<group>"; };
+		EB9750AB19ADE9A6007CEC15 /* CellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellViewController.h; sourceTree = "<group>"; };
+		EB9750AC19ADE9A6007CEC15 /* CellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellViewController.m; sourceTree = "<group>"; };
+		EB9750AF19AE05F9007CEC15 /* CellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellView.h; sourceTree = "<group>"; };
+		EB9750B019AE05F9007CEC15 /* CellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellView.m; sourceTree = "<group>"; };
+		EB9750B219AE0C21007CEC15 /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
+		EB9750B319AE0C21007CEC15 /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB97509B19AD3075007CEC15 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +100,7 @@
 		EB4A26B919AA244B00945AEB = {
 			isa = PBXGroup;
 			children = (
+				EB97509A19AD3075007CEC15 /* AppKit.framework */,
 				EB4A26C419AA244C00945AEB /* Chinese flashcards */,
 				EB4A26DE19AA244C00945AEB /* Chinese flashcardsTests */,
 				EB4A26C319AA244C00945AEB /* Products */,
@@ -81,6 +119,7 @@
 		EB4A26C419AA244C00945AEB /* Chinese flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				EB9750AE19ADEC00007CEC15 /* Word classes */,
 				EB4A26C919AA244C00945AEB /* ViewController.h */,
 				EB4A26CA19AA244C00945AEB /* ViewController.m */,
 				EB4A26CC19AA244C00945AEB /* AppDelegate.h */,
@@ -89,6 +128,16 @@
 				EB4A26D419AA244C00945AEB /* Main.storyboard */,
 				EB4A26CF19AA244C00945AEB /* Chinese_flashcards.xcdatamodeld */,
 				EB4A26C519AA244C00945AEB /* Supporting Files */,
+				EB97509719AD2F59007CEC15 /* WindowController.h */,
+				EB97509819AD2F59007CEC15 /* WindowController.m */,
+				EB97509C19AD37CE007CEC15 /* TransparentScrollView.h */,
+				EB97509D19AD37CE007CEC15 /* TransparentScrollView.m */,
+				EB9750AB19ADE9A6007CEC15 /* CellViewController.h */,
+				EB9750AC19ADE9A6007CEC15 /* CellViewController.m */,
+				EB9750AF19AE05F9007CEC15 /* CellView.h */,
+				EB9750B019AE05F9007CEC15 /* CellView.m */,
+				EB9750B219AE0C21007CEC15 /* RoundedView.h */,
+				EB9750B319AE0C21007CEC15 /* RoundedView.m */,
 			);
 			path = "Chinese flashcards";
 			sourceTree = "<group>";
@@ -117,6 +166,21 @@
 				EB4A26E019AA244C00945AEB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB9750AE19ADEC00007CEC15 /* Word classes */ = {
+			isa = PBXGroup;
+			children = (
+				EB9750A819ADDF81007CEC15 /* WordPacksController.h */,
+				EB9750A919ADDF81007CEC15 /* WordPacksController.m */,
+				EB97509F19ADDE76007CEC15 /* Word.h */,
+				EB9750A019ADDE76007CEC15 /* Word.m */,
+				EB9750A119ADDE76007CEC15 /* WordPack.h */,
+				EB9750A219ADDE76007CEC15 /* WordPack.m */,
+				EB9750A319ADDE76007CEC15 /* WordVault.h */,
+				EB9750A419ADDE76007CEC15 /* WordVault.m */,
+			);
+			name = "Word classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +215,7 @@
 			);
 			dependencies = (
 				EB4A26DD19AA244C00945AEB /* PBXTargetDependency */,
+				EB59850419AA26F9002EA6C5 /* PBXTargetDependency */,
 			);
 			name = "Chinese flashcardsTests";
 			productName = "Chinese flashcardsTests";
@@ -218,10 +283,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9750AD19ADE9A6007CEC15 /* CellViewController.m in Sources */,
+				EB9750B419AE0C21007CEC15 /* RoundedView.m in Sources */,
+				EB9750A619ADDE76007CEC15 /* WordPack.m in Sources */,
+				EB9750A719ADDE76007CEC15 /* WordVault.m in Sources */,
+				EB97509E19AD37CE007CEC15 /* TransparentScrollView.m in Sources */,
+				EB9750B119AE05F9007CEC15 /* CellView.m in Sources */,
+				EB97509919AD2F59007CEC15 /* WindowController.m in Sources */,
 				EB4A26D119AA244C00945AEB /* Chinese_flashcards.xcdatamodeld in Sources */,
 				EB4A26CB19AA244C00945AEB /* ViewController.m in Sources */,
+				EB9750AA19ADDF81007CEC15 /* WordPacksController.m in Sources */,
 				EB4A26C819AA244C00945AEB /* main.m in Sources */,
 				EB4A26CE19AA244C00945AEB /* AppDelegate.m in Sources */,
+				EB9750A519ADDE76007CEC15 /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +314,11 @@
 			isa = PBXTargetDependency;
 			target = EB4A26C119AA244B00945AEB /* Chinese flashcards */;
 			targetProxy = EB4A26DC19AA244C00945AEB /* PBXContainerItemProxy */;
+		};
+		EB59850419AA26F9002EA6C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB4A26C119AA244B00945AEB /* Chinese flashcards */;
+			targetProxy = EB59850319AA26F9002EA6C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -410,6 +489,7 @@
 				EB4A26E719AA244C00945AEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB4A26E819AA244C00945AEB /* Build configuration list for PBXNativeTarget "Chinese flashcardsTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +498,7 @@
 				EB4A26EA19AA244C00945AEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
