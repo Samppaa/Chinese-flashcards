@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CellView.h"
 
 @interface CellViewController : NSViewController
 
-@property(nonatomic, weak) IBOutlet NSTextField *packName;
+-(void)setCellTitle:(NSString*)title wordAmount:(NSInteger)wordAmount totalProgress:(double)totalProgress;
 
 @end

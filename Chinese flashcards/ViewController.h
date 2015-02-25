@@ -8,14 +8,30 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CellViewController.h"
-#import "CellView.h"
 #import "WordPacksController.h"
+#import "AppDelegate.h"
+#import "ProgressCell.h"
+#import "StudyWordsViewController.h"
+#import "WindowController.h"
+#import "SettingsView.h"
 
 @interface ViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property(nonatomic, weak) IBOutlet NSTableView *tableView;
 @property(nonatomic, weak) IBOutlet NSTableView *tableView2;
+@property(nonatomic, weak) IBOutlet NSToolbarItem *settingsItem;
 @property(nonatomic, assign) NSInteger selectedRow;
+@property(nonatomic, assign) BOOL hasSelectedRow;
+
+-(IBAction)addNewWordPack:(id)sender;
+-(IBAction)addNewWord:(id)sender;
+-(IBAction)cancelAddOperation:(id)sender;
+-(IBAction)studySelectedWordPack:(id)sender;
+-(IBAction)deleteSelectedWordPack:(id)sender;
+-(IBAction)deleteSelectedWord:(id)sender;
+-(IBAction)showSettings:(id)sender;
+-(IBAction)markSelectedWordAsKnown:(id)sender;
+-(void)updateTableViewsAfterStudy;
 
 
 @end

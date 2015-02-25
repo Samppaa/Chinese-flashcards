@@ -17,5 +17,6 @@
 -(BOOL)addWord:(Word*)word;
 -(Word*)getWordWithText:(NSString*)text;
 -(BOOL)updateWord:(Word*)word newWord:(Word*)word2;
+-(BOOL)updateWordWithName:(NSString*)name newWord:(Word*)word;
 
 @end

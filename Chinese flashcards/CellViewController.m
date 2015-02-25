@@ -23,4 +23,12 @@
     return self;
 }
 
+-(void)setCellTitle:(NSString*)title wordAmount:(NSInteger)wordAmount totalProgress:(double)totalProgress
+{
+    CellView *view = (CellView*)self.view;
+    view.packName.stringValue = title;
+    view.packWordAmount.stringValue = [NSString stringWithFormat:@"%li", (long)wordAmount];
+    view.progress.doubleValue = totalProgress*100.0;
+}
+
 @end

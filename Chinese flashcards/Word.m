@@ -37,6 +37,34 @@
     return [NSString stringWithString:string];
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    Word* copy = [[[self class] alloc] init];
+    
+    if (copy) {
+        copy.wordText = [self.wordText copyWithZone:zone];
+        copy.pinyin = [self.pinyin copyWithZone:zone];
+        copy.translation = [self.translation copyWithZone:zone];
+        
+    }
+    
+    return copy;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    Word* copy = [[[self class] alloc] init];
+    
+    if (copy) {
+        copy.wordText = [self.wordText mutableCopyWithZone:zone];
+        copy.pinyin = [self.pinyin mutableCopyWithZone:zone];
+        copy.translation = [self.translation mutableCopyWithZone:zone];
+        
+    }
+    
+    return copy;
+}
+
 -(id)initWithString:(NSString*)string
 {
     self = [super init];

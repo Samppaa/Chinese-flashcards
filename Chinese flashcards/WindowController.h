@@ -10,4 +10,6 @@
 
 @interface WindowController : NSWindowController
 
+@property(nonatomic, weak) IBOutlet NSToolbarItem* settingsButton;
+
 @end

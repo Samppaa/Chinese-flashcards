@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Word : NSObject
+@interface Word : NSObject <NSCopying>
 
 @property(nonatomic, getter=getWordText) NSString *wordText;
 @property(nonatomic, getter=getTranslation) NSString *translation;

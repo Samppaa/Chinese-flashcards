@@ -32,9 +32,29 @@
     
 }
 
+-(BOOL)isEmpty
+{
+    if (_words.count == 0) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 -(BOOL)deleteWord:(Word*)word
 {
-    return true;
+    for (int i = 0; i < _words.count; i++) {
+        if(_words.count > 0)
+        {
+            Word *word2 = [_words objectAtIndex:i];
+            if ([word.wordText isEqualToString:word2.wordText]) {
+                [_words removeObjectAtIndex:i];
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
 }
 
 -(BOOL)deleteWordWithWordText:(NSString*)wordText
@@ -65,12 +85,72 @@
     return true;
 }
 
+-(void)mix
+{
+    NSUInteger count = [_words count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        NSInteger remainingCount = count - i;
+        NSInteger exchangeIndex = i + arc4random_uniform(remainingCount);
+        [_words exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    WordPack* copy = [[[self class] alloc] init];
+    
+    if (copy) {
+        copy.title = [self.title copyWithZone:zone];
+        copy.words = [self.words copyWithZone:zone];
+    }
+    
+    return copy;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    WordPack* copy = [[[self class] alloc] init];
+    
+    if (copy) {
+        copy.title = [self.title mutableCopyWithZone:zone];
+        copy.words = [self.words mutableCopyWithZone:zone];
+    }
+    
+    return copy;
+}
+
+-(void)setLevelKnownForWordAtIndex:(NSInteger)index levelKnown:(NSInteger)levelKnown
+{
+    Word* word = [_words objectAtIndex:index];
+    word.levelKnown = levelKnown;
+}
+
+-(BOOL)updateWordKnownValueWithWordName:(NSString*)name newValue:(NSInteger)newValue
+{
+    for (Word *word in _words) {
+        if ([word.wordText isEqualToString:name]) {
+            word.levelKnown = newValue;
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+
 
 // Format is word:pinyin:translation:levelknown;
 -(id)initWithString:(NSString*)string
 {
     self = [super init];
     if (self) {
+        
+        if ([string isEqualToString:@""] || string == nil) {
+            _words = [[NSMutableArray alloc] init];
+            return self;
+        }
+        
+        _words = [[NSMutableArray alloc] init];
         NSArray *wordsRaw = [string componentsSeparatedByString:@";"];
         for (NSString *string in wordsRaw) {
             Word *word = [[Word alloc] initWithString:string];
@@ -82,8 +162,32 @@
     
 }
 
+-(NSString*)getCombinedWords
+{
+    NSMutableString *string = [[NSMutableString alloc] init];
+    for (Word *word in _words) {
+        [string appendString:[word stringValue]];
+        if (word != _words.lastObject) {
+            [string appendString:@";"];
+        }
+    }
+    
+    return string;
+}
 
--(BOOL)addWord:(NSString*)word translation:(NSString*)translationForWord pinyin:(NSString*)pinyinForWord levelKnown:(int)levelKnowForWord
+-(NSManagedObject*)getManagedObject:(NSManagedObjectContext*)context
+{
+    NSManagedObject *questionPack = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"WordPack"
+                                     inManagedObjectContext:context];
+    [questionPack setValue:_title forKey:@"title"];
+    [questionPack setValue:[self getCombinedWords] forKey:@"words"];
+    return questionPack;
+}
+
+
+
+-(BOOL)addWord:(NSString*)word translation:(NSString*)translationForWord pinyin:(NSString*)pinyinForWord levelKnown:(NSInteger)levelKnowForWord
 {
     if([self doesContainWord:word])
     {

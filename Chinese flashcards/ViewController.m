@@ -9,12 +9,27 @@
 #import "ViewController.h"
 
 @implementation ViewController
+
+// Keys:
+// includeKnownWords
+
             
 - (void)viewDidLoad {
     [super viewDidLoad];
+
                                     
     // Do any additional setup after loading the view.
     _selectedRow = -1;
+    _hasSelectedRow = NO;
+    
+    // Check the settings for first time launch
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults objectForKey:@"includeKnownWords"] == nil)
+    {
+        NSNumber *number = [NSNumber numberWithBool:YES];
+        [defaults setObject:number forKey:@"includeKnownWords"];
+    }
+    
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -22,6 +37,93 @@
                                     
     // Update the view, if already loaded.
                                 
+}
+
+-(void)updateTableViewsAfterStudy
+{
+    NSInteger selectedRow = _tableView.selectedRow;
+    [_tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] columnIndexes:[NSIndexSet indexSetWithIndex:0]];
+    [_tableView deselectRow:selectedRow];
+    [_tableView  selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];;
+}
+
+-(IBAction)showSettings:(id)sender
+{
+    SettingsView *popoverVC = [self.storyboard instantiateControllerWithIdentifier:@"SettingsVC"];
+    
+    NSButton *button = (NSButton*)sender;
+    NSPopover *popover = [[NSPopover alloc] init];
+    [popover setContentViewController:popoverVC];
+    [popover setBehavior:NSPopoverBehaviorTransient];
+    [popover showRelativeToRect:button.bounds ofView:button preferredEdge:NSMaxYEdge];
+}
+
+-(IBAction)addNewWordPack:(id)sender
+{
+    NSViewController *vc = [self.storyboard instantiateControllerWithIdentifier:@"AddGroupVC"];
+    [self presentViewControllerAsSheet:vc];
+}
+
+-(IBAction)deleteSelectedWordPack:(id)sender
+{
+    WordPack *pack = [[WordPacksController sharedWordPacksController] getWordPackAtIndex:_tableView.selectedRow];
+    NSAlert *alert = [[NSAlert alloc] init];
+    // Alert doesnt work yet!
+    [alert addButtonWithTitle:@"Ok"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Delete the word group?"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if([[WordPacksController sharedWordPacksController] deleteWordPackWithTitle:pack.title])
+    {
+        [_tableView removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:_tableView.selectedRow] withAnimation:NSTableViewAnimationEffectNone];
+        [_tableView2 reloadData];
+    }
+    
+}
+
+-(IBAction)markSelectedWordAsKnown:(id)sender
+{
+    WordPack *pack = [[WordPacksController sharedWordPacksController] getWordPackAtIndex:_tableView.selectedRow];
+    Word *Word = [[WordPacksController sharedWordPacksController] getWordAtIndex:_tableView2.selectedRow ofWordPackAtIndex:_tableView.selectedRow];
+    Word.levelKnown = 4;
+    [[WordPacksController sharedWordPacksController] updateWordPackToCoreData:pack];
+    NSInteger selectedRow = _tableView.selectedRow;
+    NSInteger selectedRow2 = _tableView2.selectedRow;
+    [_tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] columnIndexes:[NSIndexSet indexSetWithIndex:0]];
+    [_tableView deselectRow:selectedRow];
+    [_tableView  selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
+    [_tableView2 selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow2] byExtendingSelection:NO];
+}
+
+-(IBAction)deleteSelectedWord:(id)sender
+{
+    WordPack *pack = [[WordPacksController sharedWordPacksController] getWordPackAtIndex:_tableView.selectedRow];
+    Word *Word = [[WordPacksController sharedWordPacksController] getWordAtIndex:_tableView2.selectedRow ofWordPackAtIndex:_tableView.selectedRow];
+    [pack deleteWord:Word];
+    [[WordPacksController sharedWordPacksController] updateWordPackToCoreData:pack];
+    NSInteger selectedRow = _tableView.selectedRow;
+    [_tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] columnIndexes:[NSIndexSet indexSetWithIndex:0]];
+    [_tableView deselectRow:selectedRow];
+    [_tableView  selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
+}
+
+-(IBAction)addNewWord:(id)sender
+{
+    NSViewController *vc = [self.storyboard instantiateControllerWithIdentifier:@"AddWordVC"];
+    [self presentViewControllerAsSheet:vc];
+}
+
+-(IBAction)cancelAddOperation:(id)sender
+{
+    [self dismissViewController:self.presentedViewControllers.firstObject];
+}
+
+-(IBAction)studySelectedWordPack:(id)sender
+{
+    StudyWordsViewController *vc = [self.storyboard instantiateControllerWithIdentifier:@"StudyWordsVC"];
+    [vc prepareWithWordPack:[[WordPacksController sharedWordPacksController] getWordPackAtIndex:_tableView.selectedRow]];
+    [self presentViewControllerAsModalWindow:vc];
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
@@ -36,12 +138,16 @@
     return 0;
 }
 
+
 -(void)tableViewSelectionDidChange:(NSNotification *)notification
 {
     NSTableView *tableView = (NSTableView*)[notification object];
     
-    if(_tableView == tableView)
+    if(_tableView == tableView && tableView.selectedRow != -1)
     {
+        CellView *view = (CellView*)[_tableView viewAtColumn:_tableView.selectedColumn row:_tableView.selectedRow makeIfNecessary:NO];
+        view.packName.textColor = [NSColor blackColor];
+        view.packWordAmount.textColor = [NSColor blackColor];
         [_tableView2 reloadData];
     }
 }
@@ -51,6 +157,7 @@
     CellView *view = (CellView*)[_tableView viewAtColumn:_tableView.selectedColumn row:_tableView.selectedRow makeIfNecessary:NO];
     view.packName.textColor = [NSColor blackColor];
     view.packWordAmount.textColor = [NSColor blackColor];
+    [self setHasSelectedRow:YES];
     
 }
 
@@ -59,14 +166,14 @@
 {
     if(_tableView == tableView)
     {
-        CellViewController *vc = (CellViewController*)[self.storyboard instantiateControllerWithIdentifier:@"cellvc"];
-        CellView *view = (CellView*)vc.view;
-        WordPack *pack = [[WordPacksController sharedWordPacksController] getWordPackAtIndex:row];
+        if(row != -1)
+        {
+            CellViewController *vc = (CellViewController*)[self.storyboard instantiateControllerWithIdentifier:@"cellvc"];
+            WordPack *pack = [[WordPacksController sharedWordPacksController] getWordPackAtIndex:row];
     
-        view.packName.stringValue = pack.title;
-        view.packWordAmount.stringValue = [NSString stringWithFormat:@"%li", (long)[pack getWordCount]];
-        view.progress.doubleValue = 50.0;
-        return vc.view;
+            [vc setCellTitle:pack.title wordAmount:[pack getWordCount] totalProgress:[[WordPacksController sharedWordPacksController] calculateTotalProgressForWordPack:pack]];
+            return vc.view;
+        }
     }
     else
     {
@@ -89,7 +196,9 @@
             }
             else if([tableColumn.identifier isEqualTo:@"Progress"])
             {
-                result.textField.stringValue = @"placeholder";
+                ProgressCell *cell = (ProgressCell*)[self.storyboard instantiateControllerWithIdentifier:@"ProgressCell"];
+                [cell setProgress:word.getLevelKnown+1];
+                return cell.view;
             }
             
             return result;

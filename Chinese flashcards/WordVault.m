@@ -33,9 +33,25 @@
     return [[Word alloc] init];
 }
 
+// Not working
 -(BOOL)updateWord:(Word *)word newWord:(Word *)word2
+{
+    for (Word *word in _words) {
+        if ([word.wordText isEqualToString:word.wordText]) {
+            return true;
+        }
+    }
+    
+    return true;
+}
+
+
+// Not working
+-(BOOL)updateWordWithName:(NSString*)name newWord:(Word*)word
 {
     return true;
 }
+
+
 
 @end
