@@ -48,6 +48,13 @@
     self.progressIndicator.maxValue = self.calculateMaxProgress;
 }
 
+-(void)viewDidAppear
+{
+    NSMutableString *titleString = [[NSMutableString alloc] initWithString:@"Studying: "];
+    [titleString appendString:_wordPack.title];
+    self.view.window.title = titleString;
+}
+
 -(void)trimAlreadyKnownWords
 {
     NSMutableArray *wordsToDelete = [[NSMutableArray alloc] init];

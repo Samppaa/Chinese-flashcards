@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chinese flashcards/StudyWordsViewController.m"
-            timestampString = "489417691.36341"
+            timestampString = "510226430.894285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-setNextWordCorrect:"
             landmarkType = "5">
          </BreakpointContent>
