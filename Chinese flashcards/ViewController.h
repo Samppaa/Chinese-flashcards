@@ -8,12 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CellViewController.h"
+#import "WordCellViewController.h"
 #import "WordPacksController.h"
 #import "AppDelegate.h"
 #import "ProgressCell.h"
 #import "StudyWordsViewController.h"
 #import "WindowController.h"
 #import "SettingsView.h"
+#import "AddWordViewController.h"
 
 @interface ViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
@@ -32,6 +34,13 @@
 -(IBAction)showSettings:(id)sender;
 -(IBAction)markSelectedWordAsKnown:(id)sender;
 -(void)updateTableViewsAfterStudy;
+-(void)timerDeleteSelectedWordPack;
+
+//
+-(BOOL)hasSelectedWord;
+-(BOOL)hasSelectedWordPack;
+-(NSView*)getWordViewForWord:(Word*)word;
+-(NSView*)getPackViewForPack:(WordPack*)pack;
 
 
 @end

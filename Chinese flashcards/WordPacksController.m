@@ -12,18 +12,14 @@
 
 + (id)sharedWordPacksController
 {
-    // structure used to test whether the block has completed or not
     static dispatch_once_t p = 0;
     
-    // initialize sharedObject as nil (first call only)
     __strong static id _sharedObject = nil;
     
-    // executes a block object once and only once for the lifetime of an application
     dispatch_once(&p, ^{
         _sharedObject = [[self alloc] initWithWordPacksFromCoreData];
     });
     
-    // returns the same object each time
     return _sharedObject;
 }
 
@@ -47,28 +43,13 @@
 -(id)initWithWordPacksFromCoreData
 {
     self = [super init];
-    _wordPacks = [[NSMutableArray alloc] init];
+    _wordPacks = [WordPack all];
     _appDelegate = [NSApplication sharedApplication].delegate;
     _managedObjectContext = _appDelegate.managedObjectContext;
     
     if(self)
     {
-        Word *word1 = [[Word alloc] initWithWordText:@"ni hao" translation:@"hello" pinyin:@"ni hao" levelKnown:1];
-        Word *word2 = [[Word alloc] initWithWordText:@"xiexie" translation:@"thanks" pinyin:@"xiexie" levelKnown:2];
-        Word *word3 = [[Word alloc] initWithWordText:@"jiejie" translation:@"bye" pinyin:@"jiejie" levelKnown:3];
-        WordPack *pack1 = [[WordPack alloc] initWithTitle:@"Chinese 1 vocabulary"];
-        WordPack *pack2 = [[WordPack alloc] initWithTitle:@"Chinese 2 vocabularyyyyyyyd"];
-        [pack1 addWord:word1];
-        [pack1 addWord:word2];
-        [pack2 addWord:word3];
-        
-        //[self addWordPackToCoreData:pack2];
-        [self getWordPacksFromCoreData];
-        
-        //////
-        
-        
-        
+        //_wordPacks = [[WordPack all] copy];
     }
     
     return self;
@@ -137,67 +118,60 @@
     return YES;
 }
 
--(BOOL)updateWordPackToCoreDataWithIndex:(NSInteger)index
+-(NSArray*)fetchWordPacksFromCoreDataWithTitle:(NSString*)wordPackTitle error:(NSError*)error
 {
-    WordPack *pack = [_wordPacks objectAtIndex:index];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name==%@", pack.title];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name==%@", wordPackTitle];
     
     NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"WordPack" inManagedObjectContext:_managedObjectContext];
     [fetch setEntity:entityDescription];
     [fetch setPredicate:predicate];
-    
+
+    return [_managedObjectContext executeFetchRequest:fetch error:&error];
+}
+
+-(BOOL)fetchAndSaveWordPack:(WordPack*)pack
+{
     NSError *error;
-    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetch error:&error];
-    
+    NSArray *fetchedObjects = [self fetchWordPacksFromCoreDataWithTitle:pack.title error:error];
     if (fetchedObjects.count > 0) {
         NSManagedObject *object = [fetchedObjects firstObject];
-        [object setValue:pack.title forKey:@"name"];
-        [object setValue:[pack getCombinedWords] forKey:@"words"];
-        [_managedObjectContext save:&error];
+        [self saveWordPackAsManagedObject:object pack:pack error:error];
     }
     
     if (![_managedObjectContext save:&error]) {
         return NO;
     }
     
-    
     return YES;
+}
+
+-(void)saveWordPackAsManagedObject:(NSManagedObject*)object pack:(WordPack*)pack error:(NSError*)error
+{
+    [object setValue:pack.title forKey:@"name"];
+    [object setValue:[pack getCombinedWords] forKey:@"words"];
+    [_managedObjectContext save:&error];
+}
+
+-(BOOL)updateWordPackToCoreDataWithIndex:(NSInteger)index
+{
+    WordPack *pack = [_wordPacks objectAtIndex:index];
+    return [self fetchAndSaveWordPack:pack];
 }
 
 
 -(BOOL)updateWordPackToCoreData:(WordPack*)wordPack
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name==%@", wordPack.title];
-    
-    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"WordPack" inManagedObjectContext:_managedObjectContext];
-    [fetch setEntity:entityDescription];
-    [fetch setPredicate:predicate];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetch error:&error];
-    
-    if (fetchedObjects.count > 0) {
-        NSManagedObject *object = [fetchedObjects firstObject];
-        [object setValue:wordPack.title forKey:@"name"];
-        [object setValue:[wordPack getCombinedWords] forKey:@"words"];
-        [_managedObjectContext save:&error];
-    }
-    
-    if (![_managedObjectContext save:&error]) {
-        return NO;
-    }
-    
-    return YES;
+    return [self fetchAndSaveWordPack:wordPack];
 }
 
 
 -(BOOL)addWordWithWordText:(NSString*)wordText pinyin:(NSString*)pinyin translation:(NSString*)translation packIndex:(NSInteger)packIndex
 {
-    BOOL ok1 = [[_wordPacks objectAtIndex:packIndex] addWord:wordText translation:translation pinyin:pinyin levelKnown:0];
-    if (ok1) {
-        return [self updateWordPackToCoreDataWithIndex:packIndex];
+    WordPack *pack = [_wordPacks objectAtIndex:packIndex];
+    BOOL ok = [pack addWord:wordText translation:translation pinyin:pinyin levelKnown:0];
+    if (ok) {
+        return [pack update];
     }
     
     return NO;
@@ -221,8 +195,6 @@
 
 -(BOOL)addWordPackWithTitle:(NSString*)title
 {
-    // First check for same names!
-    
     for (WordPack *pack2 in _wordPacks) {
         if ([pack2.title isEqualToString:title]) {
             return NO;
@@ -230,7 +202,7 @@
     }
     
     WordPack *pack = [[WordPack alloc] initWithTitle:title];
-    if([self addWordPackToCoreData:pack])
+    if([pack save])
     {
         [_wordPacks addObject:pack];
         return YES;

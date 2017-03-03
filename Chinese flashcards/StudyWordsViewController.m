@@ -18,28 +18,49 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code here.
+
         
     }
     return self;
 }
 
+-(NSInteger)calculateMaxProgress
+{
+    return (self.wordPack.count*self.timesToGetCorrect);
+}
+
+
+-(void)increaseProgressByOneCorrectAnswer
+{
+    // Add possible animation
+    [self.progressIndicator incrementBy:1.0];
+}
+
 
 -(void)viewDidLoad
 {
-    // Bug here
-    if ([_wordPack isEmpty]) {
-        [self.presentingViewController dismissViewController:self];
-    }
-    
     _currentWordIndex = 0;
+    _timesToGetCorrect = 3;
+    
     Word *word = [_wordPack getWordAtIndex:_currentWordIndex];
-    _chineseWord.stringValue = word.wordText;
-    _pinyin.stringValue = word.pinyin;
-    _translation.stringValue = word.translation;
-    self.title = _wordPack.title;
+    [self setCurrentWord:word];
+    
+    self.progressIndicator.maxValue = self.calculateMaxProgress;
 }
 
+-(void)trimAlreadyKnownWords
+{
+    NSMutableArray *wordsToDelete = [[NSMutableArray alloc] init];
+    for (Word *word in _wordPack.words) {
+        if (word.levelKnown == 4) {
+            [wordsToDelete addObject:word];
+        }
+    }
+    
+    for (Word *word in wordsToDelete) {
+        [_wordPack deleteWord:word];
+    }
+}
 
 -(void)prepareWithWordPack:(WordPack*)pack
 {
@@ -50,21 +71,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *include = [defaults objectForKey:@"includeKnownWords"];
     
-    if(!include.boolValue)
-    {
-        NSLog(@"here!");
-        NSMutableArray *wordsToDelete = [[NSMutableArray alloc] init];
-        for (Word *word in _wordPack.words) {
-            if (word.levelKnown == 4) {
-                [wordsToDelete addObject:word];
-            }
-        }
-        
-        for (Word *word in wordsToDelete) {
-            NSLog(@"removed word");
-            [_wordPack deleteWord:word];
-        }
-    }
+    _timesToGetCorrect = 3; // Make into dynamic
+    
+    if(!include.boolValue && !pack.isCompleted)
+        [self trimAlreadyKnownWords];
     
     for (Word *word in _wordPack.words) {
         [_wordLevels setObject:[NSNumber numberWithInteger:0] forKey:word.wordText];
@@ -92,6 +102,46 @@
         [self setNextWordCorrect:NO];
 }
 
+-(void)setCurrentWord:(Word*)word
+{
+    if ([CFToneColorer validateWord:word.wordText pinyin:word.pinyin])
+    {
+        NSMutableAttributedString *tempString = [[NSMutableAttributedString alloc] initWithAttributedString:[CFToneColorer getColoredString:word.pinyin characters:word.wordText]];
+        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+        paragraphStyle.alignment = kCTTextAlignmentCenter;
+        [tempString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, tempString.length)];
+        _chineseWord.attributedStringValue = tempString;
+    }
+    else
+    {
+        _chineseWord.stringValue = word.wordText;
+    }
+    
+    _pinyin.stringValue = word.pinyin;
+    _translation.stringValue = word.translation;
+}
+
+-(void)startFromBeginningIfRequired
+{
+    if(_currentWordIndex+1 > _wordPack.getWordCount) // Start from beginning
+    {
+        _currentWordIndex = 0;
+        
+        if([_wordPack getWordCount] > 4) // Settings maybe?
+            [_wordPack mix];
+    }
+    
+    [self setCurrentWord:[_wordPack getWordAtIndex:_currentWordIndex]];
+}
+
+-(void)increaseWordLevel:(Word*)word
+{
+    word.levelKnown++;
+    [_originalWordPack updateWordKnownValueWithWordName:word.wordText newValue:word.levelKnown];
+    if([[WordPacksController sharedWordPacksController] updateWordPackToCoreData:_originalWordPack])
+        NSLog(@"Updated word pack!");
+}
+
 -(void)setNextWordCorrect:(BOOL)correct
 {
     
@@ -102,24 +152,23 @@
     
     if(correct)
     {
-        if([_wordPack getWordCount] > 0)
+        if(!_wordPack.isEmpty)
         {
             Word *word = [_wordPack getWordAtIndex:_currentWordIndex];
             NSNumber *numberValue = (NSNumber*)[_wordLevels objectForKey:word.wordText];
-            NSInteger currentValue = numberValue.integerValue;
+            NSInteger currentValue = numberValue.integerValue; // Make this into dynamic
             currentValue++;
             [_wordLevels setObject:[NSNumber numberWithInteger:currentValue] forKey:word.wordText];
-            if (currentValue == 3) {
+            [self increaseProgressByOneCorrectAnswer];
+            
+            if (currentValue == self.timesToGetCorrect) { // Max
                 if (word.levelKnown < 5) {
-                    NSLog(@"here!");
-                    word.levelKnown++;
-                    [_originalWordPack updateWordKnownValueWithWordName:word.wordText newValue:word.levelKnown];
-                    if([[WordPacksController sharedWordPacksController] updateWordPackToCoreData:_originalWordPack])
-                        NSLog(@"Updated word pack!");
+                    [self increaseWordLevel:word];
                 }
                 [_wordPack deleteWord:word];
-                // Problem here!
-                if([_wordPack getWordCount] == 0)
+                
+                // Problem here! This could also be done after the window is closed
+                if(_wordPack.isEmpty)
                 {
                     // Reload the tableview2 and tableview1
                     ViewController *controller = (ViewController*)self.presentingViewController;
@@ -130,66 +179,18 @@
         }
     }
     
-    if([_wordPack getWordCount] > 0)
+    if(!_wordPack.isEmpty)
     {
         _currentWordIndex++;
-        if(_currentWordIndex+1 > _wordPack.getWordCount)
-        {
-            _currentWordIndex = 0;
-            
-            if([_wordPack getWordCount] > 4) // Settings maybe?
-                [_wordPack mix];
-        }
-        
-        Word *word = [_wordPack getWordAtIndex:_currentWordIndex];
-        _chineseWord.stringValue = word.wordText;
-        _pinyin.stringValue = word.pinyin;
-        _translation.stringValue = word.translation;
+        [self startFromBeginningIfRequired];
     }
 }
 
-
--(void)keyUp:(NSEvent*)event
-{
-    NSLog(@"test");
-}
 
 - (BOOL)acceptsFirstResponder {
     return YES;
 }
 
--(void)viewWillLayout
-{
-    /*NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"test"];
-     NSString *test = @"test";
-     [string addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:[test rangeOfString:@"te"]];
-     [_chineseWord setAttributedStringValue:string];*/
-    
-    NSInteger minSize = 36;
-    NSInteger minSize2 = 17;
-    NSInteger maxSize = 90;
-    NSInteger maxSize2 = 23;
-    
-    if(self.view.frame.size.height > 500 && (minSize+(self.view.frame.size.height-500)) < maxSize)
-    {
-        
-        [_chineseWord setFont:[NSFont fontWithName:_chineseWord.font.fontName size:minSize+(self.view.frame.size.height-500)]];
-        
-        NSInteger fontToSet = minSize2+(self.view.frame.size.height-500);
-        if (fontToSet > maxSize2) {
-            fontToSet = maxSize2;
-        }
-        
-        [_pinyin setFont:[NSFont fontWithName:_pinyin.font.fontName size:fontToSet]];
-        [_translation setFont:[NSFont fontWithName:_pinyin.font.fontName size:fontToSet]];
-        
-    }
-}
-
--(void)viewWillTransitionToSize:(NSSize)newSize
-{
-    NSLog(@"yes");
-}
 
 
 @end

@@ -20,11 +20,15 @@
     return self;
 }
 
+- (void)setBackgroundStyle:(NSBackgroundStyle)backgroundStyle {
+    [super setBackgroundStyle:backgroundStyle];
+    self.packName.textColor = (backgroundStyle == NSBackgroundStyleLight ? [NSColor darkGrayColor] : [NSColor colorWithCalibratedWhite:0.85 alpha:1.0]);
+    self.packWordAmount.textColor = (backgroundStyle == NSBackgroundStyleLight ? [NSColor darkGrayColor] : [NSColor colorWithCalibratedWhite:0.85 alpha:1.0]);
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-    
-    // Drawing code here.
 }
 
 @end

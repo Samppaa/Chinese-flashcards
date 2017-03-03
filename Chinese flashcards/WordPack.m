@@ -27,6 +27,11 @@
     return _words.count;
 }
 
+-(NSInteger)count
+{
+    return self.getWordCount;
+}
+
 -(void)shuffleWords
 {
     
@@ -209,6 +214,113 @@
     }
     
     return false;
+}
+
+-(BOOL)isCompleted
+{
+    for (Word *w in self.words) {
+        if (w.getLevelKnown < 4) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+-(BOOL)save
+{
+    AppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    NSManagedObject *questionPack = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"WordPack"
+                                     inManagedObjectContext:managedObjectContext];
+    [questionPack setValue:self.title forKey:@"name"];
+    [questionPack setValue:[self getCombinedWords] forKey:@"words"];
+    
+    NSError *error;
+    if (![managedObjectContext save:&error]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+-(BOOL)update
+{
+    AppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name==%@", self.title];
+    
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"WordPack" inManagedObjectContext:managedObjectContext];
+    [fetch setEntity:entityDescription];
+    [fetch setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetch error:&error];
+    
+    if (fetchedObjects.count > 0) {
+        NSManagedObject *object = [fetchedObjects firstObject];
+        [object setValue:self.title forKey:@"name"];
+        [object setValue:[self getCombinedWords] forKey:@"words"];
+        [managedObjectContext save:&error];
+    }
+    
+    if (![managedObjectContext save:&error]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(BOOL)destroy
+{
+    AppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name==%@", self.title];
+    
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"WordPack" inManagedObjectContext:managedObjectContext];
+    [fetch setEntity:entityDescription];
+    [fetch setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetch error:&error];
+    
+    for (NSManagedObject *o in fetchedObjects) {
+        [managedObjectContext deleteObject:o];
+    }
+    
+    NSError *error2;
+    if (![managedObjectContext save:&error2]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
++(NSMutableArray*)all
+{
+    AppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    
+    NSMutableArray *wordPacks = [[NSMutableArray alloc] init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"WordPack" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *wordPack in fetchedObjects) {
+        WordPack *pack = [[WordPack alloc] initWithString:[wordPack valueForKey:@"words"]];
+        pack.title = [wordPack valueForKey:@"name"];
+        [wordPacks addObject:pack];
+    }
+    
+    return wordPacks;
 }
 
 @end

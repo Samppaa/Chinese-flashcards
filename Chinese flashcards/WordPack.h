@@ -17,12 +17,14 @@
 
 -(id)initWithTitle:(NSString*)title;
 -(BOOL)isEmpty;
+-(BOOL)isCompleted;
 -(BOOL)addWord:(Word*)word;
 -(BOOL)addWord:(NSString*)word translation:(NSString*)translationForWord pinyin:(NSString*)pinyinForWord levelKnown:(NSInteger)levelKnowForWord;
 -(BOOL)deleteWord:(Word*)word;
 -(BOOL)deleteWordWithWordText:(NSString*)wordText;
 -(BOOL)doesContainWord:(NSString*)wordText;
 -(NSInteger)getWordCount;
+-(NSInteger)count;
 -(id)initWithString:(NSString*)string;
 -(void)shuffleWords;
 -(Word*)getWordAtIndex:(NSInteger)index;
@@ -31,6 +33,11 @@
 -(void)mix;
 -(void)setLevelKnownForWordAtIndex:(NSInteger)index levelKnown:(NSInteger)levelKnown;
 -(BOOL)updateWordKnownValueWithWordName:(NSString*)name newValue:(NSInteger)newValue;
+
+-(BOOL)save;
+-(BOOL)update;
+-(BOOL)destroy;
++(NSMutableArray*)all;
 
 
 @end

@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Word.h"
+#import "CFToneColorer.h"
 
 @interface Chinese_flashcardsTests : XCTestCase
 
@@ -25,14 +26,21 @@
     [super tearDown];
 }
 
-
-- (void)testExample {
-    Word *word = [[Word alloc] initWithWordText:@"Ni hao" translation:@"Hello" pinyin:@"Ni hao" levelKnown:5];
-    XCTAssertEqual([word getWordText], @"Ni hao");
-    
-    Word *word2 = [[Word alloc] initWithString:@"Ni hao:Hello:Ni hao:5"];
-    XCTAssertEqual([word2 stringValue], @"Ni hao:Hello:Ni hao:5");
+- (void)testToneColoring {
+    BOOL isGoodPinyin1 = [CFToneColorer validateWord:@"你好" pinyin:@"ni2hao3"];
+    XCTAssertEqual(isGoodPinyin1, YES);
+    BOOL isGoodPinyin2 = [CFToneColorer validateWord:@"你好" pinyin:@"ni2hao3hao1"];
+    XCTAssertEqual(isGoodPinyin2, NO);
+    BOOL isGoodPinyin3 = [CFToneColorer validateWord:@"中国国民党" pinyin:@"zhong1guo2guo2min2dang4"];
+    XCTAssertEqual(isGoodPinyin3, YES);
+    BOOL isGoodPinyin4 = [CFToneColorer validateWord:@"中国国民党" pinyin:@"zhong1guo2guo min dang4"];
+    XCTAssertEqual(isGoodPinyin4, YES);
+    BOOL isGoodPinyin5 = [CFToneColorer validateWord:@"我们" pinyin:@"wo3men"];
+    XCTAssertEqual(isGoodPinyin5, YES);
+    BOOL isGoodPinyin6 = [CFToneColorer validateWord:@"现在" pinyin:@"xian4 zai4"];
+    XCTAssertEqual(isGoodPinyin6, YES);
 }
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

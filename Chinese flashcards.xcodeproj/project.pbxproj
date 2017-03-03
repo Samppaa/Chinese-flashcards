@@ -21,19 +21,23 @@
 		EB97509E19AD37CE007CEC15 /* TransparentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97509D19AD37CE007CEC15 /* TransparentScrollView.m */; };
 		EB9750A519ADDE76007CEC15 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A019ADDE76007CEC15 /* Word.m */; };
 		EB9750A619ADDE76007CEC15 /* WordPack.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A219ADDE76007CEC15 /* WordPack.m */; };
-		EB9750A719ADDE76007CEC15 /* WordVault.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A419ADDE76007CEC15 /* WordVault.m */; };
 		EB9750AA19ADDF81007CEC15 /* WordPacksController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750A919ADDF81007CEC15 /* WordPacksController.m */; };
 		EB9750AD19ADE9A6007CEC15 /* CellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750AC19ADE9A6007CEC15 /* CellViewController.m */; };
 		EB9750B119AE05F9007CEC15 /* CellView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750B019AE05F9007CEC15 /* CellView.m */; };
 		EB9750B419AE0C21007CEC15 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9750B319AE0C21007CEC15 /* RoundedView.m */; };
+		EB9D232F1B5734F100AB7869 /* WordCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D232E1B5734F100AB7869 /* WordCardView.m */; };
+		EB9D23361B5C4B2300AB7869 /* CFToneColorer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D23351B5C4B2300AB7869 /* CFToneColorer.m */; };
+		EBAA015C1D2BECAC00DAF0CB /* KeyHandlingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAA015B1D2BECAC00DAF0CB /* KeyHandlingView.m */; settings = {ASSET_TAGS = (); }; };
 		EBBB843F19AFE20400A3DA50 /* AddWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB843E19AFE20400A3DA50 /* AddWordViewController.m */; };
 		EBBB844219B27F8C00A3DA50 /* AddWordPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB844119B27F8C00A3DA50 /* AddWordPackViewController.m */; };
 		EBBB844519B35B6800A3DA50 /* ProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB844419B35B6800A3DA50 /* ProgressCell.m */; };
 		EBBB844819B35EE500A3DA50 /* ProgressCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB844719B35EE500A3DA50 /* ProgressCellView.m */; };
 		EBBB844B19B39FAB00A3DA50 /* StudyWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB844A19B39FAB00A3DA50 /* StudyWordsViewController.m */; };
 		EBBB844E19B3A77100A3DA50 /* ResizableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB844D19B3A77100A3DA50 /* ResizableTextField.m */; };
-		EBBB845419B67F9900A3DA50 /* KeyHandlingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBB845319B67F9900A3DA50 /* KeyHandlingView.m */; };
 		EBBB845619C0EC0E00A3DA50 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB845519C0EC0E00A3DA50 /* QuartzCore.framework */; };
+		EBD7345C1B5D72E400188696 /* CFStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD7345B1B5D72E400188696 /* CFStatusView.m */; };
+		EBD8E82A1B55BE0100B72695 /* WordCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E8291B55BE0100B72695 /* WordCellViewController.m */; };
+		EBD8E82D1B55C3F400B72695 /* WordCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8E82C1B55C3F400B72695 /* WordCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +84,6 @@
 		EB9750A019ADDE76007CEC15 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		EB9750A119ADDE76007CEC15 /* WordPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPack.h; sourceTree = "<group>"; };
 		EB9750A219ADDE76007CEC15 /* WordPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPack.m; sourceTree = "<group>"; };
-		EB9750A319ADDE76007CEC15 /* WordVault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordVault.h; sourceTree = "<group>"; };
-		EB9750A419ADDE76007CEC15 /* WordVault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordVault.m; sourceTree = "<group>"; };
 		EB9750A819ADDF81007CEC15 /* WordPacksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPacksController.h; sourceTree = "<group>"; };
 		EB9750A919ADDF81007CEC15 /* WordPacksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPacksController.m; sourceTree = "<group>"; };
 		EB9750AB19ADE9A6007CEC15 /* CellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellViewController.h; sourceTree = "<group>"; };
@@ -90,6 +92,12 @@
 		EB9750B019AE05F9007CEC15 /* CellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellView.m; sourceTree = "<group>"; };
 		EB9750B219AE0C21007CEC15 /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
 		EB9750B319AE0C21007CEC15 /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
+		EB9D232D1B5734F100AB7869 /* WordCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCardView.h; sourceTree = "<group>"; };
+		EB9D232E1B5734F100AB7869 /* WordCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCardView.m; sourceTree = "<group>"; };
+		EB9D23341B5C4B2300AB7869 /* CFToneColorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFToneColorer.h; sourceTree = "<group>"; };
+		EB9D23351B5C4B2300AB7869 /* CFToneColorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFToneColorer.m; sourceTree = "<group>"; };
+		EBAA015A1D2BEC8100DAF0CB /* KeyHandlingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyHandlingView.h; sourceTree = "<group>"; };
+		EBAA015B1D2BECAC00DAF0CB /* KeyHandlingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyHandlingView.m; sourceTree = "<group>"; };
 		EBBB843D19AFE20400A3DA50 /* AddWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWordViewController.h; sourceTree = "<group>"; };
 		EBBB843E19AFE20400A3DA50 /* AddWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWordViewController.m; sourceTree = "<group>"; };
 		EBBB844019B27F8C00A3DA50 /* AddWordPackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWordPackViewController.h; sourceTree = "<group>"; };
@@ -102,9 +110,13 @@
 		EBBB844A19B39FAB00A3DA50 /* StudyWordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyWordsViewController.m; sourceTree = "<group>"; };
 		EBBB844C19B3A77100A3DA50 /* ResizableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizableTextField.h; sourceTree = "<group>"; };
 		EBBB844D19B3A77100A3DA50 /* ResizableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizableTextField.m; sourceTree = "<group>"; };
-		EBBB845219B67F9900A3DA50 /* KeyHandlingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyHandlingView.h; sourceTree = "<group>"; };
-		EBBB845319B67F9900A3DA50 /* KeyHandlingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyHandlingView.m; sourceTree = "<group>"; };
 		EBBB845519C0EC0E00A3DA50 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EBD7345A1B5D72E400188696 /* CFStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFStatusView.h; sourceTree = "<group>"; };
+		EBD7345B1B5D72E400188696 /* CFStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFStatusView.m; sourceTree = "<group>"; };
+		EBD8E8281B55BE0100B72695 /* WordCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCellViewController.h; sourceTree = "<group>"; };
+		EBD8E8291B55BE0100B72695 /* WordCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCellViewController.m; sourceTree = "<group>"; };
+		EBD8E82B1B55C3F400B72695 /* WordCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCellView.h; sourceTree = "<group>"; };
+		EBD8E82C1B55C3F400B72695 /* WordCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +162,9 @@
 		EB4A26C419AA244C00945AEB /* Chinese flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				EBD8E82F1B55C54400B72695 /* Views */,
+				EBD8E82E1B55C51D00B72695 /* Viewcontrollers */,
 				EB9750AE19ADEC00007CEC15 /* Word classes */,
-				EB4A26C919AA244C00945AEB /* ViewController.h */,
-				EB4A26CA19AA244C00945AEB /* ViewController.m */,
 				EB4A26CC19AA244C00945AEB /* AppDelegate.h */,
 				EB4A26CD19AA244C00945AEB /* AppDelegate.m */,
 				EB4A26D219AA244C00945AEB /* Images.xcassets */,
@@ -161,32 +173,10 @@
 				EB4A26C519AA244C00945AEB /* Supporting Files */,
 				EB97509719AD2F59007CEC15 /* WindowController.h */,
 				EB97509819AD2F59007CEC15 /* WindowController.m */,
-				EB97509C19AD37CE007CEC15 /* TransparentScrollView.h */,
-				EB97509D19AD37CE007CEC15 /* TransparentScrollView.m */,
-				EB9750AB19ADE9A6007CEC15 /* CellViewController.h */,
-				EB9750AC19ADE9A6007CEC15 /* CellViewController.m */,
-				EB9750AF19AE05F9007CEC15 /* CellView.h */,
-				EB9750B019AE05F9007CEC15 /* CellView.m */,
-				EB9750B219AE0C21007CEC15 /* RoundedView.h */,
-				EB9750B319AE0C21007CEC15 /* RoundedView.m */,
-				EBBB843D19AFE20400A3DA50 /* AddWordViewController.h */,
-				EBBB843E19AFE20400A3DA50 /* AddWordViewController.m */,
-				EBBB844019B27F8C00A3DA50 /* AddWordPackViewController.h */,
-				EBBB844119B27F8C00A3DA50 /* AddWordPackViewController.m */,
-				EBBB844319B35B6800A3DA50 /* ProgressCell.h */,
-				EBBB844419B35B6800A3DA50 /* ProgressCell.m */,
-				EBBB844619B35EE500A3DA50 /* ProgressCellView.h */,
-				EBBB844719B35EE500A3DA50 /* ProgressCellView.m */,
-				EBBB844919B39FAB00A3DA50 /* StudyWordsViewController.h */,
-				EBBB844A19B39FAB00A3DA50 /* StudyWordsViewController.m */,
 				EBBB844C19B3A77100A3DA50 /* ResizableTextField.h */,
 				EBBB844D19B3A77100A3DA50 /* ResizableTextField.m */,
-				EBBB845219B67F9900A3DA50 /* KeyHandlingView.h */,
-				EBBB845319B67F9900A3DA50 /* KeyHandlingView.m */,
 				EB96118419D0AAA400800878 /* PopoverToolBarItem.h */,
 				EB96118519D0AAA400800878 /* PopoverToolBarItem.m */,
-				EB50C1C919EECBE80094111F /* SettingsView.h */,
-				EB50C1CA19EECBE80094111F /* SettingsView.m */,
 			);
 			path = "Chinese flashcards";
 			sourceTree = "<group>";
@@ -226,10 +216,56 @@
 				EB9750A019ADDE76007CEC15 /* Word.m */,
 				EB9750A119ADDE76007CEC15 /* WordPack.h */,
 				EB9750A219ADDE76007CEC15 /* WordPack.m */,
-				EB9750A319ADDE76007CEC15 /* WordVault.h */,
-				EB9750A419ADDE76007CEC15 /* WordVault.m */,
+				EB9D23341B5C4B2300AB7869 /* CFToneColorer.h */,
+				EB9D23351B5C4B2300AB7869 /* CFToneColorer.m */,
 			);
 			name = "Word classes";
+			sourceTree = "<group>";
+		};
+		EBD8E82E1B55C51D00B72695 /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				EB4A26C919AA244C00945AEB /* ViewController.h */,
+				EB4A26CA19AA244C00945AEB /* ViewController.m */,
+				EB9750AB19ADE9A6007CEC15 /* CellViewController.h */,
+				EB9750AC19ADE9A6007CEC15 /* CellViewController.m */,
+				EBBB843D19AFE20400A3DA50 /* AddWordViewController.h */,
+				EBBB843E19AFE20400A3DA50 /* AddWordViewController.m */,
+				EBBB844019B27F8C00A3DA50 /* AddWordPackViewController.h */,
+				EBBB844119B27F8C00A3DA50 /* AddWordPackViewController.m */,
+				EBBB844919B39FAB00A3DA50 /* StudyWordsViewController.h */,
+				EBBB844A19B39FAB00A3DA50 /* StudyWordsViewController.m */,
+				EBD8E8281B55BE0100B72695 /* WordCellViewController.h */,
+				EBD8E8291B55BE0100B72695 /* WordCellViewController.m */,
+			);
+			name = Viewcontrollers;
+			sourceTree = "<group>";
+		};
+		EBD8E82F1B55C54400B72695 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBAA015A1D2BEC8100DAF0CB /* KeyHandlingView.h */,
+				EBAA015B1D2BECAC00DAF0CB /* KeyHandlingView.m */,
+				EB97509C19AD37CE007CEC15 /* TransparentScrollView.h */,
+				EB97509D19AD37CE007CEC15 /* TransparentScrollView.m */,
+				EB9750AF19AE05F9007CEC15 /* CellView.h */,
+				EB9750B019AE05F9007CEC15 /* CellView.m */,
+				EB9750B219AE0C21007CEC15 /* RoundedView.h */,
+				EB9750B319AE0C21007CEC15 /* RoundedView.m */,
+				EBBB844319B35B6800A3DA50 /* ProgressCell.h */,
+				EBBB844419B35B6800A3DA50 /* ProgressCell.m */,
+				EBBB844619B35EE500A3DA50 /* ProgressCellView.h */,
+				EBBB844719B35EE500A3DA50 /* ProgressCellView.m */,
+				EB50C1C919EECBE80094111F /* SettingsView.h */,
+				EB50C1CA19EECBE80094111F /* SettingsView.m */,
+				EBD8E82B1B55C3F400B72695 /* WordCellView.h */,
+				EBD8E82C1B55C3F400B72695 /* WordCellView.m */,
+				EB9D232D1B5734F100AB7869 /* WordCardView.h */,
+				EB9D232E1B5734F100AB7869 /* WordCardView.m */,
+				EBD7345A1B5D72E400188696 /* CFStatusView.h */,
+				EBD7345B1B5D72E400188696 /* CFStatusView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +313,7 @@
 		EB4A26BA19AA244B00945AEB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Samuli Lehtonen";
 				TargetAttributes = {
 					EB4A26C119AA244B00945AEB = {
@@ -338,8 +374,9 @@
 				EBBB844E19B3A77100A3DA50 /* ResizableTextField.m in Sources */,
 				EB9750B419AE0C21007CEC15 /* RoundedView.m in Sources */,
 				EB9750A619ADDE76007CEC15 /* WordPack.m in Sources */,
-				EB9750A719ADDE76007CEC15 /* WordVault.m in Sources */,
 				EB97509E19AD37CE007CEC15 /* TransparentScrollView.m in Sources */,
+				EBD8E82D1B55C3F400B72695 /* WordCellView.m in Sources */,
+				EBD8E82A1B55BE0100B72695 /* WordCellViewController.m in Sources */,
 				EB9750B119AE05F9007CEC15 /* CellView.m in Sources */,
 				EB97509919AD2F59007CEC15 /* WindowController.m in Sources */,
 				EB4A26D119AA244C00945AEB /* Chinese_flashcards.xcdatamodeld in Sources */,
@@ -347,11 +384,14 @@
 				EBBB844B19B39FAB00A3DA50 /* StudyWordsViewController.m in Sources */,
 				EB9750AA19ADDF81007CEC15 /* WordPacksController.m in Sources */,
 				EB4A26C819AA244C00945AEB /* main.m in Sources */,
+				EB9D232F1B5734F100AB7869 /* WordCardView.m in Sources */,
 				EBBB844819B35EE500A3DA50 /* ProgressCellView.m in Sources */,
 				EB4A26CE19AA244C00945AEB /* AppDelegate.m in Sources */,
+				EBD7345C1B5D72E400188696 /* CFStatusView.m in Sources */,
+				EB9D23361B5C4B2300AB7869 /* CFToneColorer.m in Sources */,
 				EB96118619D0AAA400800878 /* PopoverToolBarItem.m in Sources */,
 				EBBB843F19AFE20400A3DA50 /* AddWordViewController.m in Sources */,
-				EBBB845419B67F9900A3DA50 /* KeyHandlingView.m in Sources */,
+				EBAA015C1D2BECAC00DAF0CB /* KeyHandlingView.m in Sources */,
 				EBBB844519B35B6800A3DA50 /* ProgressCell.m in Sources */,
 				EB9750A519ADDE76007CEC15 /* Word.m in Sources */,
 			);
@@ -412,6 +452,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -475,6 +516,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Chinese flashcards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lehtonen.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -486,6 +528,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Chinese flashcards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lehtonen.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -506,6 +549,7 @@
 				INFOPLIST_FILE = "Chinese flashcardsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lehtonen.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -523,6 +567,7 @@
 				INFOPLIST_FILE = "Chinese flashcardsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lehtonen.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

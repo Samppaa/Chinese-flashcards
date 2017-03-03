@@ -9,15 +9,21 @@
 #import <Cocoa/Cocoa.h>
 #import "WordPacksController.h"
 #import "ViewController.h"
+#import "CFStatusView.h"
 
-@interface AddWordViewController : NSViewController
+@interface AddWordViewController : NSViewController <NSTextFieldDelegate>
 
 @property(nonatomic, weak) IBOutlet NSTextField *wordText;
 @property(nonatomic, weak) IBOutlet NSTextField *pinyin;
 @property(nonatomic, weak) IBOutlet NSTextField *translation;
+@property(nonatomic, weak) IBOutlet CFStatusView *statusView;
+@property(nonatomic, weak) IBOutlet NSTextField *exampleTextField;
+@property(nonatomic, strong) WordPack *pack;
 
 -(IBAction)cancelAddOperation:(id)sender;
 -(IBAction)acceptWordOperation:(id)sender;
 -(void)dismissThisView;
+-(void)convertCharactersToPinyin;
+-(NSString*)sanitizeUserInput:(NSString*)input;
 
 @end

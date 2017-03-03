@@ -29,6 +29,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    self.window.titleVisibility = NSWindowTitleHidden;
     //self.window.styleMask = self.window.styleMask | NSFullSizeContentViewWindowMask;
     //self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantLight];
 }
