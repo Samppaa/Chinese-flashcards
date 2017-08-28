@@ -5,11 +5,11 @@ This a small app I created to learn Chinese words by using spaced repetion. Addi
 The user interface is very intuitive and easy to use.
 
 
-The main interface:
+## The main interface:
 ![UI1](pic1.png)
 
-Adding a new word:
+## Adding a new word:
 ![UI2](pic2.png)
 
-Studying added words:
+## Studying added words:
 ![UI3](pic3.png)
