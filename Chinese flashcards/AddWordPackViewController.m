@@ -31,13 +31,8 @@
 -(IBAction)addWordPack:(id)sender
 {
     if ([[WordPacksController sharedWordPacksController] addWordPackWithTitle:_titleField.stringValue]) {
-        // Ok
         [((ViewController*)self.presentingViewController).tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:((ViewController*)self.presentingViewController).tableView.numberOfRows+1] withAnimation:NSTableViewAnimationEffectNone];
         [self performSelector:@selector(dismissThisView) withObject:nil afterDelay:0.1];
-    }
-    else
-    {
-        // Error
     }
 }
 

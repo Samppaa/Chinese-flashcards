@@ -12,7 +12,6 @@
 
 -(id)init
 {
-    NSLog(@"Initted item12");
     return self;
 }
 

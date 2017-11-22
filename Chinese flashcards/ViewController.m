@@ -210,7 +210,6 @@
     return vc.view;
 }
 
-
 -(NSView*)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     if(_tableView == tableView)

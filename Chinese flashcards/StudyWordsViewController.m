@@ -32,7 +32,6 @@
 
 -(void)increaseProgressByOneCorrectAnswer
 {
-    // Add possible animation
     [self.progressIndicator incrementBy:1.0];
 }
 
@@ -78,7 +77,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *include = [defaults objectForKey:@"includeKnownWords"];
     
-    _timesToGetCorrect = 3; // Make into dynamic
+    _timesToGetCorrect = 3;
     
     if(!include.boolValue && !pack.isCompleted)
         [self trimAlreadyKnownWords];
@@ -130,11 +129,11 @@
 
 -(void)startFromBeginningIfRequired
 {
-    if(_currentWordIndex+1 > _wordPack.getWordCount) // Start from beginning
+    if(_currentWordIndex+1 > _wordPack.getWordCount)
     {
         _currentWordIndex = 0;
         
-        if([_wordPack getWordCount] > 4) // Settings maybe?
+        if([_wordPack getWordCount] > 4)
             [_wordPack mix];
     }
     
@@ -145,8 +144,7 @@
 {
     word.levelKnown++;
     [_originalWordPack updateWordKnownValueWithWordName:word.wordText newValue:word.levelKnown];
-    if([[WordPacksController sharedWordPacksController] updateWordPackToCoreData:_originalWordPack])
-        NSLog(@"Updated word pack!");
+    [[WordPacksController sharedWordPacksController] updateWordPackToCoreData:_originalWordPack];
 }
 
 -(void)setNextWordCorrect:(BOOL)correct
@@ -163,21 +161,19 @@
         {
             Word *word = [_wordPack getWordAtIndex:_currentWordIndex];
             NSNumber *numberValue = (NSNumber*)[_wordLevels objectForKey:word.wordText];
-            NSInteger currentValue = numberValue.integerValue; // Make this into dynamic
+            NSInteger currentValue = numberValue.integerValue;
             currentValue++;
             [_wordLevels setObject:[NSNumber numberWithInteger:currentValue] forKey:word.wordText];
             [self increaseProgressByOneCorrectAnswer];
             
-            if (currentValue == self.timesToGetCorrect) { // Max
+            if (currentValue == self.timesToGetCorrect) {
                 if (word.levelKnown < 5) {
                     [self increaseWordLevel:word];
                 }
                 [_wordPack deleteWord:word];
                 
-                // Problem here! This could also be done after the window is closed
                 if(_wordPack.isEmpty)
                 {
-                    // Reload the tableview2 and tableview1
                     ViewController *controller = (ViewController*)self.presentingViewController;
                     [controller updateTableViewsAfterStudy];
                     [self.presentingViewController dismissViewController:self];

@@ -10,6 +10,13 @@
 
 @implementation WordPacksController
 
+
+/**
+ * Gets the shared instance of WordPacksController
+ * @author Samuli Lehtonen
+ *
+ * @return Shared instance of wordpack controller
+ */
 + (id)sharedWordPacksController
 {
     static dispatch_once_t p = 0;

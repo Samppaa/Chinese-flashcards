@@ -28,7 +28,7 @@
 
 -(void)keyDown:(NSEvent *)theEvent
 {
-    NSLog(@"test");
+    
 }
 
 @end
