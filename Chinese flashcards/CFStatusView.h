@@ -14,7 +14,7 @@ enum {
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface CFStatusView : NSView
+@interface CFStatusView : NSView <CAAnimationDelegate>
 
 @property(nonatomic) NSBezierPath *path;
 @property(nonatomic, strong) NSColor* color;
